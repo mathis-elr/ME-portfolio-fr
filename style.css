@@ -330,22 +330,73 @@ nav a{
     margin-left: auto;
 }
 
+/* Tablettes */
 @media (max-width: 768px) {
     nav {
-        font-size: 22px; /* Réduit la taille de police */
+        font-size: 20px;
     }
 
     nav a {
-        padding: 5px; /* Réduit le padding */
+        padding: 5px;
     }
 
     #btn-contact img{
-        width: 30px;
-        height: 30px;
+        width: 33px;
+        height: 33px;
     }
 
     #btn-profil img{
-        width: 30px;
-        height: 30px;
+        width: 33px;
+        height: 33px;
+    }
+}
+
+/* Téléphones */
+@media (max-width: 550px) {
+    header {
+        font-size: 50px;
+        padding: 20px;
+    }
+
+    main {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    nav {
+        font-size: 16px;
+    }
+
+    nav a {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    nav .flou {
+        padding: 5px;
+    }
+
+    #mathis .content-gauche,
+    #mathis .content-droite {
+        width: 100%; /* Prend toute la largeur */
+    }
+
+    #mathis .titre {
+        font-size: 28px;
+    }
+
+    #mathis .text {
+        font-size: 16px;
+    }
+
+    .infos-contact,
+    .infos-profil {
+        font-size: 14px;
+    }
+
+    #btn-contact img,
+    #btn-profil img {
+        width: 21px;
+        height: 21px;
     }
 }
