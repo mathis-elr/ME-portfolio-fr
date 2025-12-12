@@ -45,32 +45,34 @@
 
 body{
     background-color: #121212;
-    background-size: cover;
-    font-family: 'Garamond', sans-serif;
     overflow-y: auto;
+    min-height: 150vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header{
     padding: 40px;
     color: #BD5630;
-    font-size: 80px;
-    font-weight: bold;
+    font-family: 'Bodoni Moda', sans-serif;
+    font-weight: 800;
+    font-size: 90px;
 }
 
 main{
     margin-left: 50px;
     margin-right: 50px;
     font-size: 20px;
-    color: white;
-    font-family: 'Inter', sans-serif;
+    color: #F2F2F2;
+    flex: 1;
 }
 
 
 /* --- Commun pages --- */
 .section {
-    position: absolute;
     display: none;
     margin-right: 50px;
+    margin-bottom: 50px;
 }
 
 .entrantDroite{
@@ -131,6 +133,7 @@ main{
     width: 65%;
     justify-self: right;
     text-align: right;
+
 }
 
 #mathis I{
@@ -152,12 +155,10 @@ main{
 
 /* --- Copyright --- */
 footer {
-    width: 99%;
     color: #BD5630;
-    bottom: -20%;
-    padding-bottom: 15px;
-    position: absolute;
+    padding: 20px;
     text-align: center;
+    background-color: #121212;
 }
 
 
@@ -166,6 +167,7 @@ nav{
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    left: 0;
     font-size: 32px;
     bottom: 0;
     width: 100%;
@@ -190,19 +192,20 @@ nav a{
     text-decoration: none;
     padding: 10px;
     color: #F2F2F2;
+    font-family: 'Bodoni Moda', sans-serif;
+    font-weight: 700;
     opacity: 0.9;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    font-weight: bold;
 }
 
 /*--- Contacts ---*/
 #contact {
     display: grid;
     border-radius: 50px;
-    margin-bottom: 12px;
-    margin-left: 8px;
+    margin-left: 6px;
+    margin-bottom: 3px;
 }
 
 #contact-info-container {
@@ -254,7 +257,8 @@ nav a{
     transform: translateX(-50%);
     border-radius: 50px;
     gap: 15px;
-    margin-bottom: 12px;
+    margin-bottom: 3px;
+    z-index: -1;
 }
 
 .page:hover{
@@ -277,8 +281,8 @@ nav a{
 #profil{
     display: grid;
     border-radius: 50px;
-    margin-bottom: 12px;
-    margin-right: 20px;
+    margin-right: 6px;
+    margin-bottom: 3px;
 }
 
 #profil-info-container {
@@ -324,4 +328,24 @@ nav a{
 #btn-profil img{
     display: block;
     margin-left: auto;
+}
+
+@media (max-width: 768px) {
+    nav {
+        font-size: 22px; /* Réduit la taille de police */
+    }
+
+    nav a {
+        padding: 5px; /* Réduit le padding */
+    }
+
+    #btn-contact img{
+        width: 30px;
+        height: 30px;
+    }
+
+    #btn-profil img{
+        width: 30px;
+        height: 30px;
+    }
 }

@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentScroll = window.scrollY || document.documentElement.scrollTop;
 
         if (currentScroll > 100) {
-            nav.style.transform = 'translateY(100%)';
+            nav.style.transform = 'translateY(105%)';
         } else {
             nav.style.transform = 'translateY(0)';
         }
