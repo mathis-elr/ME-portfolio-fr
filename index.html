@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+        <title>ME Portfolio</title>
+    </head>
+    <body>
+        <header>
+            Mathis
+            Eloire
+        </header>
+        <main>
+            <div id="mathis" class="section entrantGauche">
+                <div class="content">
+                    <div class="content-gauche">
+                        <div class="titre">
+                            A propos de moi
+                            <div class="separateur"></div>
+                        </div>
+                        <div class="text">
+                            "Qu'est-ce que tu veux faire plus tard ?"<br>
+                            Cette phrase que l'on m'a posé beaucoup trop de fois et à laquelle je n'ai jamais réussi à répondre à enfin trouvé sa réponse lorsque j'ai découvert au lycée le <I>développement informatique</I>.
+                            <p>Pris de passion par ce monde si vaste, je décide de poursuivre sur cette voie pour en découvrir davantage dans l'espoir un jour de devenir moi aussi, <I>développeur</I>.</p>
+                            <p>Après un an en BUT informatique à Anglet, cette passion n'a fait que s'amplifier, mais ayant hâte de travailler, je décide de commencer une alternance pour les deux ans de formation restante.</p>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="content-droite">
+                        <div class="titre">
+                            Centres d'interêt
+                            <div class="separateur"></div>
+                        </div>
+                        <div class="text">
+                            Passionné par le milieu équestre depuis mes 6 ans, ce sport m'a permis de développer ma perseverance
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="parcours" class="section">
+                mon parcours
+            </div>
+
+            <div id="projets" class="section">
+               mes projets
+            </div>
+
+            <div id="skills" class="section">
+                mes skills
+            </div>
+        </main>
+        <footer>
+            <div class="separateur"></div>
+             &copy; 2025 Portfolio Mathis Eloire. Tous droits réservés.
+        </footer>
+        <nav>
+            <div class="flou" id="contact">
+                <div id="contact-info-container">
+                    <a class="infos-contact" href="https://github.com/mathis-elr" target="_blank">
+                        <img src="images/icon-github-blanc.png" alt="GitHub"> mathis-elr ↗
+                    </a>
+                    <a class="infos-contact" href="https://www.linkedin.com/in/mathis-eloire/" target="_blank">
+                        <img src="images/icon-linkedin-blanc.png" alt="Linkedin"> mathis-eloire ↗
+                    </a>
+                    <a class="infos-contact">
+                        <img src="images/icon-telephone-blanc.png" alt="Tel"> 07 79 86 70 60
+                    </a>
+                    <a class="infos-contact">
+                        <img src="images/icon-mail-blanc.png" alt="Mail"> mathis.eloire15@gmail.com
+                    </a>
+                </div>
+
+                <a id="btn-contact" href="#"><img src="images/icon-contact-blanc.png" alt="Contact" id="icon-contact"></a>
+            </div>
+
+            <div class="flou" id="pages">
+                <a id="mathis-section" class="page active-page" onclick="changeContenuPage('mathis','mathis-section')">Mathis</a>
+                <a id="parcours-section" class="page" onclick="changeContenuPage('parcours','parcours-section')">Parcours</a>
+                <a id="projets-section" class="page" onclick="changeContenuPage('projets','projets-section')">Projets</a>
+                <a id="skills-section" class="page" onclick="changeContenuPage('skills','skills-section')">Skills</a>
+            </div>
+
+            <div class="flou" id="profil">
+                <div id="profil-info-container">
+                    <a class="infos-profil">
+                        19 ans <img src="images/icon-anniversaire-blanc.png" alt="Anniversaire">
+                    </a>
+                    <a class="infos-profil">
+                        permis BE <img src="images/icon-permis-blanc.png" alt="Volant">
+                    </a>
+                </div>
+
+                <a id="btn-profil" href="#"><img src="images/icon-profil-blanc.png" alt="Profil" id="icon-profil" ></a>
+            </div>
+        </nav>
+    </body>
+</html>

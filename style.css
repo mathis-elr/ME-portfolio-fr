@@ -1,0 +1,327 @@
+@keyframes glissementEntrantDroite {
+    from {
+        transform: translateX(500px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes glissementEntrantGauche {
+    from {
+        transform: translateX(-500px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes glissementSortantDroite {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(500px);
+        opacity: 0;
+    }
+}
+
+@keyframes glissementSortantGauche {
+    from {
+        transform: translateX(0);
+        opacity: 1; /* Commence visible */
+    }
+    to {
+        transform: translateX(-500px);
+        opacity: 0; /* Finit invisible, sortant vers la droite */
+    }
+}
+
+
+body{
+    background-color: #121212;
+    background-size: cover;
+    font-family: 'Garamond', sans-serif;
+    overflow-y: auto;
+}
+
+header{
+    padding: 40px;
+    color: #BD5630;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+main{
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 20px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* --- Commun pages --- */
+.section {
+    position: absolute;
+    display: none;
+    margin-right: 50px;
+}
+
+.entrantDroite{
+    display: block;
+    animation: glissementEntrantDroite 0.5s ease-in-out forwards;
+}
+
+.entrantGauche{
+    display: block;
+    animation: glissementEntrantGauche 0.5s ease-in-out forwards;
+}
+
+.sortantDroite{
+    animation: glissementSortantDroite 0.5s ease-in-out forwards;
+}
+
+.sortantGauche{
+    animation: glissementSortantGauche 0.5s ease-in-out forwards;
+}
+
+.separateur{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(255,255,255,0.1);
+    border-radius: 50px;
+}
+
+
+/* --- Page Mathis --- */
+#mathis{
+    display: block;
+}
+
+#mathis .content{
+    display: grid;
+    gap: 50px;
+}
+
+#mathis .titre{
+    font-weight: bold;
+    font-size: 40px;
+}
+
+#mathis .text{
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+#mathis .content-gauche{
+    width: 65%;
+    justify-self: left;
+    text-align: left;
+}
+
+#mathis .content-droite{
+    width: 65%;
+    justify-self: right;
+    text-align: right;
+}
+
+#mathis I{
+    color: #BD5630;
+}
+
+
+/* --- Page Parcours --- */
+
+
+
+/* --- Page Projets --- */
+
+
+
+/* --- Page Skills --- */
+
+
+
+/* --- Copyright --- */
+footer {
+    width: 99%;
+    color: #BD5630;
+    bottom: -20%;
+    padding-bottom: 15px;
+    position: absolute;
+    text-align: center;
+}
+
+
+/* --- Navigation --- */
+nav{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    font-size: 32px;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+    transition: transform 0.5s ease-in-out;
+}
+
+body:has(:target) nav {
+    transform: translateY(100%);
+}
+
+nav .flou{
+    display: flex;
+    padding: 10px;
+    background-color: rgb(0, 0, 0, 0.1);
+    border: 2px solid rgb(255,255,255,0.2);
+    border-radius: 40px;
+    backdrop-filter: blur(4px);
+}
+
+nav a{
+    text-decoration: none;
+    padding: 10px;
+    color: #F2F2F2;
+    opacity: 0.9;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-weight: bold;
+}
+
+/*--- Contacts ---*/
+#contact {
+    display: grid;
+    border-radius: 50px;
+    margin-bottom: 12px;
+    margin-left: 8px;
+}
+
+#contact-info-container {
+    display: grid;
+    text-align: left;
+    max-width: 0;
+    max-height: 0;
+    opacity: 0;
+    transition: max-width 0.3s ease-out 0.2s,
+    max-height 0.3s ease-out 0.2s,
+    opacity 0.2s ease-in 0s;
+    pointer-events: none; /*pour éviter que la zone caché ne déclenche l'affichage des infos dans contact*/
+}
+
+#contact.afficheInfos #contact-info-container {
+    max-width: 400px;
+    max-height: 400px;
+    opacity: 1;
+    transition: max-width 0.3s ease-out 0s,
+    max-height 0.3s ease-out 0s,
+    opacity 0.2s ease-in 0.2s;
+    pointer-events: all;
+}
+
+.infos-contact {
+    color:#F2F2F2;
+    font-size: 20px;
+    text-align: left;
+}
+
+.infos-contact:hover {
+    transform: translate(5px,-5px);
+    color: #BD5630;
+}
+
+.infos-contact img{
+    vertical-align: middle;
+}
+
+#btn-contact img{
+    display: block;
+    margin-right: auto;
+}
+
+/*--- Barre de navigation ---*/
+#pages{
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.page:hover{
+    background-color: rgb(255,255,255,0.1);
+    border-radius: 50px;
+}
+
+.page{
+    transition: all 0.3s ease-in-out;
+}
+
+.active-page{
+    transform: scale(1.1);
+    border-radius: 50px;
+    color: #A84825;
+    background-color: rgb(255,255,255,0.1);
+}
+
+/*--- Infos supplémentaires sur moi ---*/
+#profil{
+    display: grid;
+    border-radius: 50px;
+    margin-bottom: 12px;
+    margin-right: 20px;
+}
+
+#profil-info-container {
+    display: grid;
+    max-width: 0;
+    max-height: 0;
+    opacity: 0;
+    transition: max-width 0.3s ease-out 0.2s,
+    max-height 0.3s ease-out 0.2s,
+    opacity 0.2s ease-in 0s;
+    pointer-events: none; /*pour éviter que la zone caché ne déclenche l'affichage des infos dans profil*/
+}
+
+
+#profil.afficheInfos #profil-info-container {
+    max-width: 400px;
+    max-height: 400px;
+    opacity: 1;
+    transition: max-width 0.3s ease-out 0s,
+    max-height 0.3s ease-out 0s,
+    opacity 0.2s ease-in 0.2s;
+    pointer-events: all;
+}
+
+.infos-profil {
+    color:#F2F2F2;
+    font-size: 20px;
+    text-align: right;
+}
+.infos-profil:hover {
+    transform: translate(5px,-5px);
+    color: orangered;
+}
+.infos-profil img{
+    vertical-align: middle;
+}
+
+#btn-profil {
+    display: block;
+    align-items: flex-end;
+    text-align: right;
+}
+#btn-profil img{
+    display: block;
+    margin-left: auto;
+}
