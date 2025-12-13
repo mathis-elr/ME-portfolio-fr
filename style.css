@@ -62,6 +62,57 @@ header{
     font-size: 90px;
 }
 
+/*--- Contacts ---*/
+#contact {
+    display: grid;
+    border-radius: 40px;
+    position: absolute;
+    right: 20px;
+    z-index: 1;
+}
+
+#contact-info-container {
+    display: grid;
+    max-width: 0;
+    max-height: 0;
+    opacity: 0;
+    transition: max-width 0.3s ease-out 0.2s,
+    max-height 0.3s ease-out 0.2s,
+    opacity 0.2s ease-in 0s;
+    pointer-events: none;
+}
+
+#contact.afficheInfos #contact-info-container {
+    max-width: 400px;
+    max-height: 400px;
+    opacity: 1;
+    transition: max-width 0.3s ease-out 0s,
+    max-height 0.3s ease-out 0s,
+    opacity 0.2s ease-in 0.2s;
+    pointer-events: all;
+}
+
+.infos-contact {
+    color:#F2F2F2;
+    font-size: 20px;
+    text-align: right;
+}
+
+.infos-contact:hover {
+    transform: translate(5px,-5px);
+    color: #BD5630;
+}
+
+.infos-contact img{
+    vertical-align: middle;
+}
+
+#btn-contact img{
+    display: block;
+    margin-left: auto;
+}
+
+/*--- Corps de page ---*/
 main{
     margin-left: 50px;
     margin-right: 50px;
@@ -75,6 +126,28 @@ main{
     display: none;
     margin-right: 50px;
     margin-bottom: 50px;
+}
+
+.flou{
+    display: flex;
+    padding: 10px;
+    background-color: rgb(0, 0, 0, 0.1);
+    border: 2px solid rgb(255,255,255,0.2);
+    border-radius: 40px;
+    backdrop-filter: blur(3px);
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+a{
+    text-decoration: none;
+    padding: 10px;
+    color: #F2F2F2;
+    font-family: 'Bodoni Moda', sans-serif;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
 .entrantDroite{
@@ -104,7 +177,7 @@ main{
 
 .separateurVertical{
     width: 2px;
-    height: 200px;
+    height: 150px;
     background-color: #A84825;
 }
 
@@ -115,7 +188,6 @@ main{
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
 }
-
 .rond:hover{
     background-color: #A84825;
 }
@@ -175,14 +247,32 @@ main{
     display: grid;
     grid-template-rows: subgrid;
 }
+#parcours .col1 .row1{
+    background-color: rgb(40, 40, 40);
+    border-radius: 30px;
+    padding: 20px;
+    align-self: center;
+    margin: 20px;
+    grid-row: 1;
+    transition: all 0.3s ease-in-out;
+}
+#parcours .col1 .row1:hover{
+    transform: scale(1.01);
+}
+
 #parcours .col1 .row2{
     background-color: rgb(40, 40, 40);
     border-radius: 30px;
     padding: 20px;
     align-self: center;
     margin: 20px;
-    grid-row: 2;
+    grid-row: 3;
+    transition: all 0.3s ease-in-out;
 }
+#parcours .col1 .row2:hover{
+    transform: scale(1.01);
+}
+
 
 /* Colonne 2*/
 #parcours .col2{
@@ -219,13 +309,27 @@ main{
     grid-template-rows: subgrid;
     text-align: left;
 }
-#parcours .col3 .row3{
+#parcours .col3 .row2{
     background-color: rgb(40, 40, 40);
     border-radius: 30px;
     padding: 20px;
     align-self: center;
     margin: 20px;
-    grid-row: 3;
+    grid-row: 2;
+    transition: all 0.3s ease-in-out;
+}
+#parcours .col3 .row2:hover{
+    transform: scale(1.01);
+}
+
+#parcours .titre{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#parcours .sous-titre{
+    font-style: italic;
+    font-size: 18px;
 }
 
 /* --- Page Projets --- */
@@ -257,80 +361,6 @@ nav{
     justify-content: center;
 }
 
-.flou{
-    display: flex;
-    padding: 10px;
-    background-color: rgb(0, 0, 0, 0.1);
-    border: 2px solid rgb(255,255,255,0.2);
-    border-radius: 40px;
-    backdrop-filter: blur(3px);
-    flex-shrink: 1;
-    min-width: 0;
-}
-
-a{
-    text-decoration: none;
-    padding: 10px;
-    color: #F2F2F2;
-    font-family: 'Bodoni Moda', sans-serif;
-    font-weight: 700;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
-
-/*--- Contacts ---*/
-#contact {
-    display: grid;
-    border-radius: 40px;
-    margin-bottom: 3px;
-    position: absolute;
-    right: 20px;
-}
-
-#contact-info-container {
-    display: grid;
-    text-align: left;
-    max-width: 0;
-    max-height: 0;
-    opacity: 0;
-    transition: max-width 0.3s ease-out 0.2s,
-    max-height 0.3s ease-out 0.2s,
-    opacity 0.2s ease-in 0s;
-    pointer-events: none;
-}
-
-#contact.afficheInfos #contact-info-container {
-    max-width: 400px;
-    max-height: 400px;
-    opacity: 1;
-    transition: max-width 0.3s ease-out 0s,
-    max-height 0.3s ease-out 0s,
-    opacity 0.2s ease-in 0.2s;
-    pointer-events: all;
-}
-
-.infos-contact {
-    color:#F2F2F2;
-    font-size: 20px;
-    text-align: left;
-}
-
-.infos-contact:hover {
-    transform: translate(5px,-5px);
-    color: #BD5630;
-}
-
-.infos-contact img{
-    vertical-align: middle;
-}
-
-#btn-contact img{
-    display: block;
-    margin-left: auto;
-}
-
-/*--- Barre de navigation ---*/
 #pages{
     display: flex;
     justify-content: space-between;
