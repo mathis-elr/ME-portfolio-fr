@@ -47,7 +47,7 @@ body{
     background-color: #121212;
     overflow-y: auto;
     overflow-x: hidden;
-    min-height: 100vh;
+    min-height: 120vh;
     display: flex;
     flex-direction: column;
 }
@@ -56,7 +56,7 @@ header{
     display: flex;
     justify-content: space-between;
     padding: 40px;
-    color: #BD5630;
+    color: #A84825;
     font-family: 'Bodoni Moda', sans-serif;
     font-weight: 800;
     font-size: 90px;
@@ -100,7 +100,7 @@ header{
 
 .infos-contact:hover {
     transform: translate(5px,-5px);
-    color: #BD5630;
+    color: #A84825;
 }
 
 .infos-contact img{
@@ -118,6 +118,7 @@ main{
     margin-right: 50px;
     font-size: 20px;
     color: #F2F2F2;
+    flex: 1;
 }
 
 
@@ -131,12 +132,14 @@ main{
 .flou{
     display: flex;
     padding: 10px;
-    background-color: rgb(0, 0, 0, 0.1);
-    border: 2px solid rgb(255,255,255,0.2);
-    border-radius: 40px;
-    backdrop-filter: blur(3px);
     flex-shrink: 1;
     min-width: 0;
+
+    background: rgba(173, 173, 173, 0.1);
+    border-radius: 40px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(173, 173, 173, 0.3);
 }
 
 a{
@@ -151,12 +154,10 @@ a{
 }
 
 .entrantDroite{
-    display: block;
     animation: glissementEntrantDroite 0.5s ease-in-out forwards;
 }
 
 .entrantGauche{
-    display: block;
     animation: glissementEntrantGauche 0.5s ease-in-out forwards;
 }
 
@@ -228,7 +229,7 @@ a{
 }
 
 #mathis I{
-    color: #BD5630;
+    color: #A84825;
 }
 
 
@@ -342,10 +343,10 @@ a{
 
 /* --- Copyright --- */
 footer {
-    color: #BD5630;
+    color: #A84825;
     padding: 20px;
     text-align: center;
-    background-color: #121212;
+    margin-bottom: 0;
 }
 
 
@@ -373,7 +374,7 @@ nav{
 
 .page:hover{
     background-color: rgb(255,255,255,0.1);
-    border-radius: 50px;
+    border-radius: 40px;
 }
 
 .page{

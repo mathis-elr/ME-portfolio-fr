@@ -66,10 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
     })());*/
 })
 
-let isAnimating = false;
+let animationEncours = false;
 
 function changeContenuPage(nomPage, nomSection) {
-    if (isAnimating) {
+    if (animationEncours) {
         return;
     }
 
@@ -86,7 +86,7 @@ function changeContenuPage(nomPage, nomSection) {
         sensAnimation = 'SUIVANT';
     }
 
-    isAnimating = true;
+    animationEncours = true;
 
     const sections = document.querySelectorAll('.section');
     let section = null;
@@ -103,37 +103,51 @@ function changeContenuPage(nomPage, nomSection) {
         }
     });
 
-    if (!section) {
-        isAnimating = false;
-        return;
-    }
-
+    // Nettoyage de TOUTES les classes d'animation
     sections.forEach(s => {
         s.classList.remove('entrantGauche', 'entrantDroite', 'sortantGauche', 'sortantDroite');
     });
 
+    const nouvelleSection = document.getElementById(nomPage);
+
     if (sensAnimation === 'SUIVANT') {
+        // 1. Afficher d'abord l'élément
+        nouvelleSection.style.display = "block";
+
+        // 2. Forcer un reflow pour que le navigateur prenne en compte le display
+        nouvelleSection.offsetHeight;
+
+        // 3. Ajouter les classes d'animation
         section.classList.add("sortantGauche");
-        document.getElementById(nomPage).classList.add("entrantDroite");
-        document.getElementById(nomPage).style.display = "block";
+        nouvelleSection.classList.add("entrantDroite");
 
         section.addEventListener('animationend', function handler() {
             section.style.display = "none";
             section.classList.remove("sortantGauche");
             section.removeEventListener('animationend', handler);
-            isAnimating = false;
+
+            nouvelleSection.classList.remove("entrantDroite");
+            animationEncours = false;
         });
 
     } else if (sensAnimation === 'PRECEDENT') {
+        // 1. Afficher d'abord l'élément
+        nouvelleSection.style.display = "block";
+
+        // 2. Forcer un reflow
+        nouvelleSection.offsetHeight;
+
+        // 3. Ajouter les classes d'animation
         section.classList.add("sortantDroite");
-        document.getElementById(nomPage).classList.add("entrantGauche");
-        document.getElementById(nomPage).style.display = "block";
+        nouvelleSection.classList.add("entrantGauche");
 
         section.addEventListener('animationend', function handler() {
             section.style.display = "none";
             section.classList.remove("sortantDroite");
             section.removeEventListener('animationend', handler);
-            isAnimating = false;
+
+            nouvelleSection.classList.remove("entrantGauche");
+            animationEncours = false;
         });
     }
 
