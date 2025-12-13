@@ -12,21 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         iconContact.src = "images/icon-contact-blanc.png";
     })
 
-    const profil = document.getElementById("profil");
-    const iconProfil = document.getElementById("icon-profil");
-
-    profil.addEventListener("mouseenter", function () {
-        iconProfil.src = "images/icon-profil-orange.png";
-        this.classList.add("afficheInfos");
-    })
-
-    profil.addEventListener("mouseleave", function () {
-        this.classList.remove("afficheInfos");
-        iconProfil.src = "images/icon-profil-blanc.png";
-    })
-
-    const nav = document.querySelector('nav');
-
+    const nav = document.getElementById('pages');
     window.addEventListener('scroll', () => {
         const currentScroll = window.scrollY || document.documentElement.scrollTop;
 
@@ -83,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
 let isAnimating = false;
 
 function changeContenuPage(nomPage, nomSection) {
-
     if (isAnimating) {
         return;
     }

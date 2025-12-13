@@ -34,11 +34,11 @@
 @keyframes glissementSortantGauche {
     from {
         transform: translateX(0);
-        opacity: 1; /* Commence visible */
+        opacity: 1;
     }
     to {
         transform: translateX(-500px);
-        opacity: 0; /* Finit invisible, sortant vers la droite */
+        opacity: 0;
     }
 }
 
@@ -46,12 +46,15 @@
 body{
     background-color: #121212;
     overflow-y: auto;
-    min-height: 150vh;
+    overflow-x: hidden;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 header{
+    display: flex;
+    justify-content: space-between;
     padding: 40px;
     color: #BD5630;
     font-family: 'Bodoni Moda', sans-serif;
@@ -64,7 +67,6 @@ main{
     margin-right: 50px;
     font-size: 20px;
     color: #F2F2F2;
-    flex: 1;
 }
 
 
@@ -93,11 +95,29 @@ main{
     animation: glissementSortantGauche 0.5s ease-in-out forwards;
 }
 
-.separateur{
+.separateurHorizontal{
     margin-top: 15px;
     margin-bottom: 15px;
     border: 1px solid rgb(255,255,255,0.1);
     border-radius: 50px;
+}
+
+.separateurVertical{
+    width: 2px;
+    height: 200px;
+    background-color: #A84825;
+}
+
+.rond {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #A84825;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+
+.rond:hover{
+    background-color: #A84825;
 }
 
 
@@ -133,7 +153,6 @@ main{
     width: 65%;
     justify-self: right;
     text-align: right;
-
 }
 
 #mathis I{
@@ -142,8 +161,72 @@ main{
 
 
 /* --- Page Parcours --- */
+#parcours .content{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+}
 
+/* Colonne 1*/
+#parcours .col1{
+    grid-column: 1;
+    grid-row: 1 / 4;
+    display: grid;
+    grid-template-rows: subgrid;
+}
+#parcours .col1 .row2{
+    background-color: rgb(40, 40, 40);
+    border-radius: 30px;
+    padding: 20px;
+    align-self: center;
+    margin: 20px;
+    grid-row: 2;
+}
 
+/* Colonne 2*/
+#parcours .col2{
+    grid-column: 2;
+    grid-row: 1 / 4;
+    display: grid;
+    grid-template-rows: subgrid;
+    justify-items: center;
+}
+#parcours .col2 .row1{
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#parcours .col2 .row2{
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#parcours .col2 .row3{
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Colonne 3*/
+#parcours .col3{
+    grid-column: 3;
+    grid-row: 1 / 4;
+    display: grid;
+    grid-template-rows: subgrid;
+    text-align: left;
+}
+#parcours .col3 .row3{
+    background-color: rgb(40, 40, 40);
+    border-radius: 30px;
+    padding: 20px;
+    align-self: center;
+    margin: 20px;
+    grid-row: 3;
+}
 
 /* --- Page Projets --- */
 
@@ -166,35 +249,31 @@ footer {
 nav{
     display: flex;
     align-items: flex-end;
-    justify-content: space-between;
-    left: 0;
     font-size: 32px;
-    bottom: 0;
-    width: 100%;
     position: fixed;
-    transition: transform 0.5s ease-in-out;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
 }
 
-body:has(:target) nav {
-    transform: translateY(100%);
-}
-
-nav .flou{
+.flou{
     display: flex;
     padding: 10px;
     background-color: rgb(0, 0, 0, 0.1);
     border: 2px solid rgb(255,255,255,0.2);
     border-radius: 40px;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(3px);
+    flex-shrink: 1;
+    min-width: 0;
 }
 
-nav a{
+a{
     text-decoration: none;
     padding: 10px;
     color: #F2F2F2;
     font-family: 'Bodoni Moda', sans-serif;
     font-weight: 700;
-    opacity: 0.9;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
@@ -203,9 +282,10 @@ nav a{
 /*--- Contacts ---*/
 #contact {
     display: grid;
-    border-radius: 50px;
-    margin-left: 6px;
+    border-radius: 40px;
     margin-bottom: 3px;
+    position: absolute;
+    right: 20px;
 }
 
 #contact-info-container {
@@ -217,7 +297,7 @@ nav a{
     transition: max-width 0.3s ease-out 0.2s,
     max-height 0.3s ease-out 0.2s,
     opacity 0.2s ease-in 0s;
-    pointer-events: none; /*pour éviter que la zone caché ne déclenche l'affichage des infos dans contact*/
+    pointer-events: none;
 }
 
 #contact.afficheInfos #contact-info-container {
@@ -247,18 +327,18 @@ nav a{
 
 #btn-contact img{
     display: block;
-    margin-right: auto;
+    margin-left: auto;
 }
 
 /*--- Barre de navigation ---*/
 #pages{
+    display: flex;
+    justify-content: space-between;
     position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
     border-radius: 50px;
     gap: 15px;
     margin-bottom: 3px;
-    z-index: -1;
+    transition: transform 0.5s ease-in-out;
 }
 
 .page:hover{
@@ -277,126 +357,115 @@ nav a{
     background-color: rgb(255,255,255,0.1);
 }
 
-/*--- Infos supplémentaires sur moi ---*/
-#profil{
-    display: grid;
-    border-radius: 50px;
-    margin-right: 6px;
-    margin-bottom: 3px;
-}
-
-#profil-info-container {
-    display: grid;
-    max-width: 0;
-    max-height: 0;
-    opacity: 0;
-    transition: max-width 0.3s ease-out 0.2s,
-    max-height 0.3s ease-out 0.2s,
-    opacity 0.2s ease-in 0s;
-    pointer-events: none; /*pour éviter que la zone caché ne déclenche l'affichage des infos dans profil*/
-}
-
-
-#profil.afficheInfos #profil-info-container {
-    max-width: 400px;
-    max-height: 400px;
-    opacity: 1;
-    transition: max-width 0.3s ease-out 0s,
-    max-height 0.3s ease-out 0s,
-    opacity 0.2s ease-in 0.2s;
-    pointer-events: all;
-}
-
-.infos-profil {
-    color:#F2F2F2;
-    font-size: 20px;
-    text-align: right;
-}
-.infos-profil:hover {
-    transform: translate(5px,-5px);
-    color: orangered;
-}
-.infos-profil img{
-    vertical-align: middle;
-}
-
-#btn-profil {
-    display: block;
-    align-items: flex-end;
-    text-align: right;
-}
-#btn-profil img{
-    display: block;
-    margin-left: auto;
-}
-
 /* Tablettes */
 @media (max-width: 768px) {
-    nav {
-        font-size: 20px;
+    header {
+        font-size: 60px;
+        padding: 30px;
     }
 
-    nav a {
-        padding: 5px;
+    main {
+        margin-left: 30px;
+        margin-right: 30px;
     }
 
-    #btn-contact img{
-        width: 33px;
-        height: 33px;
+    .section {
+        margin-right: 30px;
     }
 
-    #btn-profil img{
-        width: 33px;
-        height: 33px;
+    #mathis .content-gauche,
+    #mathis .content-droite {
+        width: 80%;
+    }
+
+    #mathis .titre {
+        font-size: 32px;
+    }
+
+    #mathis .text {
+        font-size: 18px;
+    }
+
+    .infos-contact,
+    .infos-profil {
+        font-size: 18px;
+    }
+
+    #btn-contact img,
+    #btn-profil img {
+        width: 40px;
+        height: 40px;
     }
 }
 
 /* Téléphones */
-@media (max-width: 550px) {
+@media (max-width: 600px) {
     header {
         font-size: 50px;
         padding: 20px;
     }
 
     main {
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: 15px;
+        margin-right: 15px;
     }
 
-    nav {
-        font-size: 16px;
+    .section {
+        margin-right: 15px;
+        margin-bottom: 30px;
     }
 
-    nav a {
-        padding: 5px;
-        font-size: 14px;
-    }
-
-    nav .flou {
-        padding: 5px;
+    #mathis .content {
+        gap: 30px;
     }
 
     #mathis .content-gauche,
     #mathis .content-droite {
-        width: 100%; /* Prend toute la largeur */
+        width: 100%;
     }
 
     #mathis .titre {
-        font-size: 28px;
+        font-size: 25px;
     }
 
     #mathis .text {
         font-size: 16px;
     }
 
-    .infos-contact,
-    .infos-profil {
+    nav a {
+        padding: 6px;
+        font-size: 27px;
+    }
+
+    nav .flou {
+        padding: 6px;
+        gap: 3px;
+    }
+
+    #pages {
+        gap: 1px;
+    }
+
+    #btn-contact img{
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Désactiver les animations de hover sur mobile */
+    .infos-contact:hover{
+        transform: translate(3px,-3px);
+    }
+
+    /* Réduire l'effet de scale sur active-page */
+    .active-page {
+        transform: scale(1.05);
+    }
+
+    footer {
         font-size: 14px;
     }
 
-    #btn-contact img,
-    #btn-profil img {
-        width: 21px;
-        height: 21px;
+    #pages{
+        width: 90%;
     }
 }
