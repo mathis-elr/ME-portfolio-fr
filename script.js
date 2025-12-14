@@ -1,31 +1,42 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     /*--- Contacts ---*/
-    const contact = document.getElementById("contact");
-    const iconContact = document.getElementById("icon-contact");
-    /* version  souris */
-    contact.addEventListener("mouseover", function () {
-        iconContact.src = "images/icon-contact-orange.png";
-        this.classList.add("afficheInfos");
-    })
-    contact.addEventListener("mouseout", function () {
-        this.classList.remove("afficheInfos");
-        iconContact.src = "images/icon-contact-blanc.png";
-    })
-    /* version tactile */
-    contact.addEventListener("click", function () {
-        if(this.classList.contains("afficheInfos"))
+    function supportUtilise()
+    {
+        const ordinateur= window.matchMedia('(min-width: 901px)')
+        const contact = document.getElementById("contact");
+        const iconContact = document.getElementById("icon-contact");
+
+        if(ordinateur.matches)
         {
-            this.classList.remove("afficheInfos");
-            iconContact.src = "images/icon-contact-blanc.png";
+            /* version  souris */
+            contact.addEventListener("mouseover", function () {
+                iconContact.src = "images/icon-contact-orange.png";
+                this.classList.add("afficheInfos");
+            })
+            contact.addEventListener("mouseout", function () {
+                this.classList.remove("afficheInfos");
+                iconContact.src = "images/icon-contact-blanc.png";
+            })
         }
         else
         {
-            iconContact.src = "images/icon-contact-orange.png";
-            this.classList.add("afficheInfos");
+            contact.addEventListener("click", function () {
+                if(this.classList.contains("afficheInfos"))
+                {
+                    this.classList.remove("afficheInfos");
+                    iconContact.src = "images/icon-contact-blanc.png";
+                }
+                else
+                {
+                    iconContact.src = "images/icon-contact-orange.png";
+                    this.classList.add("afficheInfos");
+                }
+            })
         }
-    })
+    }
 
+    supportUtilise();
 
     /*--- Disparition navbar quand on scroll ---*/
     const nav = document.getElementById('pages');
