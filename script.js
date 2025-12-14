@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     /*--- Contacts ---*/
     const contact = document.getElementById("contact");
     const iconContact = document.getElementById("icon-contact");
+    /* version  souris */
     contact.addEventListener("mouseover", function () {
         iconContact.src = "images/icon-contact-orange.png";
         this.classList.add("afficheInfos");
@@ -11,6 +12,20 @@ document.addEventListener('DOMContentLoaded', function() {
         this.classList.remove("afficheInfos");
         iconContact.src = "images/icon-contact-blanc.png";
     })
+    /* version tactile */
+    contact.addEventListener("click", function () {
+        if(this.classList.contains("afficheInfos"))
+        {
+            this.classList.remove("afficheInfos");
+            iconContact.src = "images/icon-contact-blanc.png";
+        }
+        else
+        {
+            iconContact.src = "images/icon-contact-orange.png";
+            this.classList.add("afficheInfos");
+        }
+    })
+
 
     /*--- Disparition navbar quand on scroll ---*/
     const nav = document.getElementById('pages');
