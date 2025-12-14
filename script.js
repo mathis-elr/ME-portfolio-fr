@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     /*--- Contacts ---*/
     function supportUtilise()
     {
-        const ordinateur= window.matchMedia('(min-width: 901px)')
+        const ordinateur= window.matchMedia('(min-width: 1200px)')
         const contact = document.getElementById("contact");
         const iconContact = document.getElementById("icon-contact");
 
@@ -149,48 +149,3 @@ function changeContenuPage(nomPage, nomSection) {
     nvlSection.classList.add("active-page");
     nvlSection.querySelector("img").src = "images/icon-"+nvlSection.id+"-orange.png";
 }
-
-
-/*
-    document.querySelector('body').addEventListener('wheel', (function () {
-
-        let isScrolling = false;
-
-        return function (e) {
-            if (isScrolling) {
-                return;
-            }
-
-            isScrolling = true;
-
-            if (Math.abs(e.deltaX) < 10) {
-                isScrolling = false;
-                return;
-            }
-
-            const pagesNav = Array.from(document.getElementsByClassName("page"));
-            const idPageActive = document.querySelector(".active-page").id;
-            const indexPageActive = pagesNav.findIndex(page => page.id === idPageActive);
-            let indexNouveau;
-
-            if (e.deltaX > 0) {
-                indexNouveau = indexPageActive + 1;
-            } else {
-                indexNouveau = indexPageActive - 1;
-            }
-
-            if (indexNouveau >= 0 && indexNouveau < pagesNav.length) {
-                const idNouveau = pagesNav[indexNouveau].id;
-                const nomPage = idNouveau.split('-')[0];
-
-                console.log(idNouveau);
-                console.log(nomPage);
-                changeContenuPage(nomPage, idNouveau);
-            }
-
-            setTimeout(() => {
-                isScrolling = false;
-            }, 500);
-        }
-    })());
-*/
