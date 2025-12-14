@@ -60,30 +60,35 @@ header{
     font-family: 'Bodoni Moda', sans-serif;
     font-weight: 800;
     font-size: 90px;
+    position: relative;
 }
 
 /*--- Contacts ---*/
 #contact {
+    position: absolute;
+    overflow: hidden;
     display: grid;
     border-radius: 40px;
-    position: absolute;
-    right: 20px;
+    right: 0;
     padding:20px;
-    z-index: 1;
+    z-index: 100;
 }
 
 #contact-info-container {
     display: grid;
+    gap: 10px;
     max-width: 0;
     max-height: 0;
     opacity: 0;
     transition: max-width 0.3s ease-out 0.2s,
     max-height 0.3s ease-out 0.2s,
-    opacity 0.2s ease-in 0s;
+    opacity 0.2s ease-in 0s,
+    margin-top 0.3s ease-out 0.2s;
     pointer-events: none;
 }
 
 #contact.afficheInfos #contact-info-container {
+    margin-top: 20px;
     max-width: 400px;
     max-height: 400px;
     opacity: 1;
@@ -119,6 +124,7 @@ main{
     margin-right: 50px;
     color: #F2F2F2;
     flex: 1;
+    overflow: hidden;
 }
 
 
@@ -226,8 +232,6 @@ a{
 /* --- Page Parcours --- */
 #parcours .content{
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    grid-template-rows: auto auto auto;
     align-items: center;
 }
 
@@ -392,13 +396,23 @@ nav{
 /* Téléphones */
 @media (max-width: 900px) {
     header{
+        display:  flex;
         margin: 30px;
         font-size: 60px;
     }
 
-    #contact img{
-        width: 35px;
-        height: 35px;
+    #btn-contact img{
+        width: 30px;
+        height: 30px;
+    }
+
+    .infos-contact {
+        font-size: 16px;
+    }
+
+    .infos-contact img{
+        width: 24px;
+        height: 24px;
     }
 
     main{
@@ -416,20 +430,58 @@ nav{
 
     #mathis .content-droite,
     #mathis .content-gauche{
-        max-width: 100vh;
-        max-height: 100vh;
+        width: 100%;
     }
 
     #pages{
-        padding: 10px;
+        gap:0;
+        padding: 5px 7px 5px 7px;
+    }
+
+    .page{
+        padding: 5px 15px 5px 15px;
+    }
+
+    .page img{
+        width: 30px;
+        height: 30px;
     }
 
     nav{
         font-size: 16px;
     }
 
+    .active-page {
+        transform: scale(1.03);
+    }
 
-    nav{
-        font-size: 14px;
+
+    #parcours .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #parcours .col2 {
+        display: none;
+    }
+
+    /* Remettre les éléments dans l'ordre chronologique */
+    #parcours .col1 .row1 {
+        order: 1;
+    }
+    #parcours .col3 .row2 {
+        order: 2;
+    }
+    #parcours .col1 .row2 {
+        order: 3;
+    }
+
+    #parcours .titre {
+        font-size: 20px;
+    }
+
+    #parcours .sous-titre {
+        font-size: 16px;
     }
 }
