@@ -89,8 +89,8 @@ header{
 
 #contact.afficheInfos #contact-info-container {
     margin-top: 20px;
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 100vh;
+    max-height: 100vh;
     opacity: 1;
     transition: max-width 0.3s ease-out 0s,
     max-height 0.3s ease-out 0s,
@@ -102,6 +102,7 @@ header{
     color:#F2F2F2;
     font-size: 20px;
     text-align: right;
+    transition: all 0.3s ease-out;
 }
 
 .infos-contact:hover {
@@ -232,6 +233,8 @@ a{
 /* --- Page Parcours --- */
 #parcours .content{
     display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-auto-rows: auto auto auto;
     align-items: center;
 }
 
@@ -406,7 +409,7 @@ nav{
     }
 
     .infos-contact {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .infos-contact img{
