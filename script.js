@@ -74,7 +74,6 @@ function changeContenuPage(nomPage, nomSection) {
     animationEncours = true;
 
     const sections = document.querySelectorAll('.section');
-    console.log(sections);
     let section = null;
     sections.forEach(s => {
         const computed = window.getComputedStyle(s);

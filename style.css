@@ -200,7 +200,7 @@ a{
 
 
 /* --- Page Mathis --- */
-#parcours{
+#skills{
     display: block;
 }
 
@@ -419,6 +419,69 @@ a{
 
 
 /* --- Page Skills --- */
+#skills .content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+}
+
+#skills .block{
+    border: 2px solid #A84825;
+    border-radius: 25px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+#skills .header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #A84825;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    padding: 10px;
+    align-items: center;
+    color: #121212;
+}
+
+#skills .titre{
+    font-size: 30px;
+    padding-left: 8px;
+    transition: transform 0.5s ease-in-out;
+}
+
+#skills .titre:hover{
+    transform: translateX(5px);
+}
+
+#skills .fenetre{
+    font-size: 30px;
+    padding-right: 5px;
+    padding-left: 5px;
+    transition: color 0.4s ease-in-out;
+}
+
+#skills .fenetre:hover{
+    color: red;
+}
+
+#skills .competences{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 300px;
+    justify-content: center;
+    gap: 25px;
+    padding: 30px;
+    font-size: 20px;
+}
+
+#skills img{
+    transition: all 0.5s ease-in-out;
+}
+
+#skills img:hover{
+    transform: scale(1.1);
+}
 
 
 
