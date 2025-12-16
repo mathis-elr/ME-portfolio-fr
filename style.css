@@ -238,6 +238,14 @@ a{
 }
 
 
+/* --- Page Projets --- */
+
+
+
+/* --- Page Skills --- */
+
+
+
 /* --- Page Parcours Ordinateur --- */
 #parcours .content-ordinateur{
     display: grid;
@@ -255,8 +263,7 @@ a{
 }
 .content-ordinateur .col1 .row1{
     background-color: rgb(40, 40, 40);
-    border-radius: 30px;
-    padding: 20px;
+    border-radius: 20px;
     align-self: center;
     margin: 20px;
     grid-row: 1;
@@ -264,8 +271,7 @@ a{
 }
 .content-ordinateur .col1 .row2{
     background-color: rgb(40, 40, 40);
-    border-radius: 30px;
-    padding: 20px;
+    border-radius: 20px;
     align-self: center;
     margin: 20px;
     grid-row: 3;
@@ -309,8 +315,7 @@ a{
 }
 .content-ordinateur .col3 .row2{
     background-color: rgb(40, 40, 40);
-    border-radius: 30px;
-    padding: 20px;
+    border-radius: 20px;
     align-self: center;
     margin: 20px;
     grid-row: 2;
@@ -378,9 +383,8 @@ a{
 .content-telephone .col2 .row1{
     background-color: rgb(40, 40, 40);
     border-radius: 30px;
-    padding: 20px;
     align-self: center;
-    margin: 20px;
+    margin: 10px;
     grid-row: 1;
     transition: all 0.3s ease-in-out;
 }
@@ -388,9 +392,8 @@ a{
 .content-telephone .col2 .row2{
     background-color: rgb(40, 40, 40);
     border-radius: 30px;
-    padding: 20px;
     align-self: center;
-    margin: 20px;
+    margin: 10px;
     grid-row: 2;
     transition: all 0.3s ease-in-out;
 }
@@ -398,9 +401,8 @@ a{
 .content-telephone .col2 .row3{
     background-color: rgb(40, 40, 40);
     border-radius: 30px;
-    padding: 20px;
     align-self: center;
-    margin: 20px;
+    margin: 10px;
     grid-row: 3;
     transition: all 0.3s ease-in-out;
 }
@@ -411,78 +413,16 @@ a{
     transform: scale(1.01);
 }
 
-
-
-
-/* --- Page Projets --- */
-
-
-
-/* --- Page Skills --- */
-#skills .content{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    justify-content: center;
-}
-
-#skills .block{
-    border: 2px solid #A84825;
-    border-radius: 25px;
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-}
-
-#skills .header{
-    display: flex;
-    justify-content: space-between;
+#parcours .header{
     background-color: #A84825;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     padding: 10px;
-    align-items: center;
-    color: #121212;
 }
 
-#skills .titre{
-    font-size: 30px;
-    padding-left: 8px;
-    transition: transform 0.5s ease-in-out;
+#parcours .main{
+    padding: 15px;
 }
-
-#skills .titre:hover{
-    transform: translateX(5px);
-}
-
-#skills .fenetre{
-    font-size: 30px;
-    padding-right: 5px;
-    padding-left: 5px;
-    transition: color 0.4s ease-in-out;
-}
-
-#skills .fenetre:hover{
-    color: red;
-}
-
-#skills .competences{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 300px;
-    justify-content: center;
-    gap: 25px;
-    padding: 30px;
-    font-size: 20px;
-}
-
-#skills img{
-    transition: all 0.5s ease-in-out;
-}
-
-#skills img:hover{
-    transform: scale(1.1);
-}
-
 
 
 /* --- Copyright --- */
