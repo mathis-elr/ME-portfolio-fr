@@ -148,3 +148,47 @@ function changeContenuPage(nomPage, nomSection) {
     nvlSection.classList.add("active-page");
     nvlSection.querySelector("img").src = "images/icon-"+nvlSection.id+"-orange.png";
 }
+
+function afficheProjetGauche()
+{
+    const projetGauche = document.getElementById("projet-gauche");
+    const projetCentral = document.getElementById("projet-central");
+    const projetDroite = document.getElementById("projet-droite");
+
+    projetDroite.classList.remove("droite");
+    projetCentral.classList.remove("central");
+    projetCentral.classList.add("droite");
+    projetDroite.classList.add("gauche");
+    projetGauche.classList.remove("gauche");
+    projetGauche.classList.add("central");
+
+    projetDroite.onclick = function(){ afficheProjetGauche()};
+    projetCentral.onclick = function(){ afficheProjetDroite()};
+    projetGauche.onclick = null;
+
+    projetDroite.id = "projet-gauche";
+    projetGauche.id = "projet-central";
+    projetCentral.id = "projet-droite";
+}
+
+function afficheProjetDroite()
+{
+    const projetGauche = document.getElementById("projet-gauche");
+    const projetCentral = document.getElementById("projet-central");
+    const projetDroite = document.getElementById("projet-droite");
+
+    projetGauche.classList.remove("gauche");
+    projetCentral.classList.remove("central");
+    projetCentral.classList.add("gauche");
+    projetGauche.classList.add("droite");
+    projetDroite.classList.remove("droite");
+    projetDroite.classList.add("central");
+
+    projetGauche.onclick = function(){ afficheProjetDroite()};
+    projetCentral.onclick = function(){ afficheProjetGauche()};
+    projetDroite.onclick = null;
+
+    projetDroite.id = "projet-central";
+    projetGauche.id = "projet-droite";
+    projetCentral.id = "projet-gauche";
+}

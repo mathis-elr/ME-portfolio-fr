@@ -52,14 +52,10 @@
                             <div class="separateurHorizontal"></div>
                         </div>
                         <div class="text">
-                            Passionné par le <i>développement informatique</i> depuis sa découverte au lycée, j’ai choisi de poursuivre dans cette voie pour en apprendre toujours plus, avec l’espoir de devenir développeur.
+                            Passionné par le <i>développement informatique</i> depuis sa découverte au lycée, j’ai choisi de poursuivre dans cette voie pour devenir meilleur et en apprendre davantage.
                             <p>Après un an en <I>BUT informatique</I> à Anglet, cette passion n’a fait que grandir. Impatient de travailler, j’ai décidé d’entamer une <I>alternance</I> pour les deux années restantes de ma formation.</p>
                         </div>
-
                     </div>
-
-                    <br>
-
                     <div class="content-droite">
                         <div class="titre">
                             Centres d'interêt
@@ -76,7 +72,35 @@
             </div>
 
             <div id="projets" class="section">
-                mes projets
+                <div class="content">
+                    <div id="projet-gauche" class="projet gauche" onclick="afficheProjetGauche()">
+                        <div class="image">
+                            <img src="" alt="image">
+                        </div>
+                        <div class="titre">Application Jeu de Poker</div>
+                        <div class="text">en python</div>
+                    </div>
+                    <div id="projet-central" class="projet central">
+                        <div class="image">
+                            <img src="" alt="image">
+                        </div>
+                        <div class="titre">Application web de suivi d'investissement</div>
+                        <div class="text">en blazor c#</div>
+                    </div>
+                    <div id="projet-droite" class="projet droite" onclick="afficheProjetDroite()">
+                        <div class="image">
+                            <img src="" alt="image">
+                        </div>
+                        <div class="titre">Portfolio en anglais</div>
+                        <div class="text">html css js</div>
+                    </div>
+                    <div class="projet">
+                        <div class="image">
+                            <img src="" alt="image">
+                        </div>
+                        <div class="titre">titre projet 4</div>
+                    </div>
+                </div>
             </div>
 
             <div id="skills" class="section">
@@ -231,12 +255,10 @@
     </body>
     <nav>
         <div class="flou" id="pages">
-            <a id="mathis-section" class="page" onclick="changeContenuPage('mathis','mathis-section')"> <img src="images/icon-mathis-section-orange.png" alt="">Mathis</a>
-            <a id="projets-section" class="page" onclick="changeContenuPage('projets','projets-section')"><img src="images/icon-projets-section-blanc.png" alt="">Projets</a>
-            <a id="skills-section" class="page active-page" onclick="changeContenuPage('skills','skills-section')"><img src="images/icon-skills-section-blanc.png" alt="">Skills</a>
+            <a id="mathis-section" class="page" onclick="changeContenuPage('mathis','mathis-section')"> <img src="images/icon-mathis-section-blanc.png" alt="">Mathis</a>
+            <a id="projets-section" class="page active-page" onclick="changeContenuPage('projets','projets-section')"><img src="images/icon-projets-section-orange.png" alt="">Projets</a>
+            <a id="skills-section" class="page" onclick="changeContenuPage('skills','skills-section')"><img src="images/icon-skills-section-blanc.png" alt="">Skills</a>
             <a id="parcours-section" class="page" onclick="changeContenuPage('parcours','parcours-section')"><img src="images/icon-parcours-section-blanc.png" alt="">Parcours</a>
         </div>
     </nav>
 </html>
-
-div>nav>li.list$*4
