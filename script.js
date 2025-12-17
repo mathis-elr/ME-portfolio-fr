@@ -149,46 +149,69 @@ function changeContenuPage(nomPage, nomSection) {
     nvlSection.querySelector("img").src = "images/icon-"+nvlSection.id+"-orange.png";
 }
 
+function modulo(dividende, diviseur)
+{
+    //le modulo n'existe pas en js faut faire d'une autre manière
+    return ((dividende%diviseur) + diviseur)%diviseur;
+}
+
 function afficheProjetGauche()
 {
+    const projets =  Array.from(document.getElementsByClassName("projet"));
+    const idxProjetGauche = (projets.findIndex(projet => projet.id === "projet-gauche") - 1);
+    const NB_PROJETS = projets.length;
+    const idxProjetGaucheSuivant = modulo(idxProjetGauche, NB_PROJETS);
+
+    const projetGaucheSuivant = projets[idxProjetGaucheSuivant]
     const projetGauche = document.getElementById("projet-gauche");
     const projetCentral = document.getElementById("projet-central");
     const projetDroite = document.getElementById("projet-droite");
 
     projetDroite.classList.remove("droite");
     projetCentral.classList.remove("central");
-    projetCentral.classList.add("droite");
-    projetDroite.classList.add("gauche");
     projetGauche.classList.remove("gauche");
+    projetGaucheSuivant.classList.add("gauche");
+    projetCentral.classList.add("droite");
     projetGauche.classList.add("central");
 
-    projetDroite.onclick = function(){ afficheProjetGauche()};
+
+    projetGaucheSuivant.onclick = function(){ afficheProjetGauche()};
     projetCentral.onclick = function(){ afficheProjetDroite()};
     projetGauche.onclick = null;
+    projetDroite.onclick = null;
 
-    projetDroite.id = "projet-gauche";
+    projetDroite.id = null;
+    projetGaucheSuivant.id = "projet-gauche";
     projetGauche.id = "projet-central";
     projetCentral.id = "projet-droite";
 }
 
 function afficheProjetDroite()
 {
+    const projets =  Array.from(document.getElementsByClassName("projet"));
+    const idxProjetGauche = (projets.findIndex(projet => projet.id === "projet-droite") + 1);
+    const NB_PROJETS = projets.length;
+    const idxProjetDroiteSuivant = modulo(idxProjetGauche, NB_PROJETS);
+
+    const projetDroiteSuivant = projets[idxProjetDroiteSuivant]
     const projetGauche = document.getElementById("projet-gauche");
     const projetCentral = document.getElementById("projet-central");
     const projetDroite = document.getElementById("projet-droite");
 
     projetGauche.classList.remove("gauche");
     projetCentral.classList.remove("central");
-    projetCentral.classList.add("gauche");
-    projetGauche.classList.add("droite");
     projetDroite.classList.remove("droite");
+    projetDroiteSuivant.classList.add("droite");
     projetDroite.classList.add("central");
+    projetCentral.classList.add("gauche");
 
-    projetGauche.onclick = function(){ afficheProjetDroite()};
+    projetDroiteSuivant.onclick = function(){ afficheProjetDroite()};
     projetCentral.onclick = function(){ afficheProjetGauche()};
     projetDroite.onclick = null;
+    projetGauche.onclick = null;
 
+    projetGauche.id = null;
     projetDroite.id = "projet-central";
-    projetGauche.id = "projet-droite";
+    projetDroiteSuivant.id = "projet-droite";
     projetCentral.id = "projet-gauche";
 }
