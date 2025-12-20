@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         else
         {
+            /*version tactile*/
             contact.addEventListener("click", function () {
                 if(this.classList.contains("afficheInfos"))
                 {
@@ -53,100 +54,89 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let animationEncours = false;
 
-function changeContenuPage(nomPage, nomSection) {
+function determinerSensNavigation(nomPage, nomSection)
+{
     if (animationEncours) {
         return;
     }
 
-    const pagesNav = Array.from(document.getElementsByClassName("page"));
-    const indexActif = pagesNav.findIndex(page => page.classList.contains("active-page"));
-    const indexNouveau = pagesNav.findIndex(page => page.id === nomSection);
-    let sensAnimation;
+    const idPageChoisi = document.getElementById(nomPage);
+    const idSectionClique = document.getElementById(nomSection);
 
-    if (indexNouveau === indexActif) {
+    const pagesNav = Array.from(document.getElementsByClassName("section"));
+    const indexSectionCourante = pagesNav.findIndex(page => page.classList.contains("section-active"));
+    const indexNouvelleSection = pagesNav.findIndex(page => page.id === nomSection);
+
+    if (indexNouvelleSection === indexSectionCourante) {
         return;
-    } else if (indexNouveau < indexActif) {
-        sensAnimation = 'PRECEDENT';
-    } else {
-        sensAnimation = 'SUIVANT';
     }
 
     animationEncours = true;
 
-    const sections = document.querySelectorAll('.section');
-    let section = null;
-    sections.forEach(s => {
-        const computed = window.getComputedStyle(s);
-        if (computed.display === 'block' && s.id !== nomPage) {
-            section = s;
-        }
-    });
-
-    sections.forEach(s => {
-        if (s !== section && s.id !== nomPage) {
-            s.style.display = 'none';
-        }
-    });
-
-    // Nettoyage de TOUTES les classes d'animation
-    sections.forEach(s => {
-        s.classList.remove('entrantGauche', 'entrantDroite', 'sortantGauche', 'sortantDroite');
-    });
-
-    const nouvellePage = document.getElementById(nomPage);
-
-    if (sensAnimation === 'SUIVANT') {
-        // 1. Afficher d'abord l'élément
-        nouvellePage.style.display = "block";
-
-        // 2. Forcer un reflow pour que le navigateur prenne en compte le display
-        nouvellePage.offsetHeight;
-
-        // 3. Ajouter les classes d'animation
-        section.classList.add("sortantGauche");
-        nouvellePage.classList.add("entrantDroite");
-
-        section.addEventListener('animationend', function handler() {
-            section.style.display = "none";
-            section.classList.remove("sortantGauche");
-            section.removeEventListener('animationend', handler);
-
-            nouvellePage.classList.remove("entrantDroite");
-            animationEncours = false;
-        });
-
-    } else if (sensAnimation === 'PRECEDENT') {
-        // 1. Afficher d'abord l'élément
-        nouvellePage.style.display = "block";
-
-        // 2. Forcer un reflow
-        nouvellePage.offsetHeight;
-
-        // 3. Ajouter les classes d'animation
-        section.classList.add("sortantDroite");
-        nouvellePage.classList.add("entrantGauche");
-
-        section.addEventListener('animationend', function handler() {
-            section.style.display = "none";
-            section.classList.remove("sortantDroite");
-            section.removeEventListener('animationend', handler);
-
-            nouvellePage.classList.remove("entrantGauche");
-            animationEncours = false;
-        });
+    if (indexNouvelleSection < indexSectionCourante) {
+        changerContenuPageGauche(idPageChoisi, idSectionClique);
     }
-
-    let pages = document.getElementsByClassName("page");
-    for (let page of pages) {
-        if (page.classList.contains("active-page")) {
-            page.classList.remove("active-page");
-            page.querySelector("img").src = "images/icon-"+page.id+"-blanc.png";
-            break;
-        }
+    else {
+        changerContenuPageDroite(idPageChoisi, idSectionClique);
     }
-    const nvlSection = document.getElementById(nomSection);
-    nvlSection.classList.add("active-page");
-    nvlSection.querySelector("img").src = "images/icon-"+nvlSection.id+"-orange.png";
+}
+
+function changerContenuPageGauche(idPageChoisi, idSectionClique)
+{
+    const sectionCourante = document.querySelector(".section-active");
+    const pageCourante = document.querySelector(".page-active");
+
+    pageCourante.classList.add("sortantDroite");
+
+    pageCourante.addEventListener("animationend", function () {
+        pageCourante.style.display = "none";
+        pageCourante.classList.remove("sortantDroite");
+        idPageChoisi.style.display = "block";
+        idPageChoisi.classList.add("entrantGauche");
+
+        idPageChoisi.addEventListener("animationend", function () {
+            idPageChoisi.classList.remove("entrantGauche");
+
+            pageCourante.classList.remove("page-active");
+            idPageChoisi.classList.add("page-active");
+
+            animationEncours = false;
+        },{ once: true })
+    },{ once: true })
+
+    sectionCourante.querySelector("img").src = "images/icon-"+sectionCourante.id+"-blanc.png";
+    idSectionClique.querySelector("img").src = "images/icon-"+idSectionClique.id+"-orange.png";
+    sectionCourante.classList.remove("section-active");
+    idSectionClique.classList.add("section-active");
+}
+
+function changerContenuPageDroite(idPageChoisi, idSectionClique)
+{
+    const sectionCourante = document.querySelector(".section-active");
+    const pageCourante = document.querySelector(".page-active");
+
+    pageCourante.classList.add("sortantGauche");
+
+    pageCourante.addEventListener("animationend", function () {
+        pageCourante.style.display = "none";
+        pageCourante.classList.remove("sortantGauche");
+        idPageChoisi.style.display = "block";
+        idPageChoisi.classList.add("entrantDroite");
+
+        idPageChoisi.addEventListener("animationend", function () {
+            idPageChoisi.classList.remove("entrantDroite");
+
+            pageCourante.classList.remove("page-active");
+            idPageChoisi.classList.add("page-active");
+
+            animationEncours = false;
+        },{ once: true })
+    },{ once: true })
+
+    sectionCourante.querySelector("img").src = "images/icon-"+sectionCourante.id+"-blanc.png";
+    idSectionClique.querySelector("img").src = "images/icon-"+idSectionClique.id+"-orange.png";
+    sectionCourante.classList.remove("section-active");
+    idSectionClique.classList.add("section-active");
 }
 
 function modulo(dividende, diviseur)
@@ -167,13 +157,14 @@ function afficheProjetGauche()
     const projetCentral = document.getElementById("projet-central");
     const projetDroite = document.getElementById("projet-droite");
 
+
     projetDroite.classList.remove("droite");
     projetCentral.classList.remove("central");
     projetGauche.classList.remove("gauche");
+
     projetGaucheSuivant.classList.add("gauche");
     projetCentral.classList.add("droite");
     projetGauche.classList.add("central");
-
 
     projetGaucheSuivant.onclick = function(){ afficheProjetGauche()};
     projetCentral.onclick = function(){ afficheProjetDroite()};
@@ -189,9 +180,9 @@ function afficheProjetGauche()
 function afficheProjetDroite()
 {
     const projets =  Array.from(document.getElementsByClassName("projet"));
-    const idxProjetGauche = (projets.findIndex(projet => projet.id === "projet-droite") + 1);
+    const idxProjetDroite = (projets.findIndex(projet => projet.id === "projet-droite") + 1);
     const NB_PROJETS = projets.length;
-    const idxProjetDroiteSuivant = modulo(idxProjetGauche, NB_PROJETS);
+    const idxProjetDroiteSuivant = modulo(idxProjetDroite, NB_PROJETS);
 
     const projetDroiteSuivant = projets[idxProjetDroiteSuivant]
     const projetGauche = document.getElementById("projet-gauche");
@@ -215,3 +206,90 @@ function afficheProjetDroite()
     projetDroiteSuivant.id = "projet-droite";
     projetCentral.id = "projet-gauche";
 }
+
+
+// function changeContenuPage(nomPage, nomSection)
+// {
+//     if (animationEncours) {
+//         return;
+//     }
+//
+//     const pagesNav = Array.from(document.getElementsByClassName("page"));
+//     const indexActif = pagesNav.findIndex(page => page.classList.contains("active-page"));
+//     const indexNouveau = pagesNav.findIndex(page => page.id === nomSection);
+//     let sensAnimation;
+//
+//     if (indexNouveau === indexActif) {
+//         return;
+//     } else if (indexNouveau < indexActif) {
+//         sensAnimation = 'PRECEDENT';
+//     } else {
+//         sensAnimation = 'SUIVANT';
+//     }
+//
+//     animationEncours = true;
+//
+//     const sections = document.querySelectorAll('.section');
+//     let section = null;
+//     sections.forEach(s => {
+//         const computed = window.getComputedStyle(s);
+//         if (computed.display === 'block' && s.id !== nomPage) {
+//             section = s;
+//         }
+//     });
+//
+//     // // Nettoyage de TOUTES les classes d'animation
+//     // sections.forEach(s => {
+//     //     s.classList.remove('entrantGauche', 'entrantDroite', 'sortantGauche', 'sortantDroite');
+//     // });
+//
+//     const nouvellePage = document.getElementById(nomPage);
+//
+//     if (sensAnimation === 'SUIVANT') {
+//         // 1. Afficher d'abord l'élément
+//         nouvellePage.style.display = "block";
+//
+//         // 3. Ajouter les classes d'animation
+//         section.classList.add("sortantGauche");
+//         nouvellePage.classList.add("entrantDroite");
+//
+//         section.addEventListener('animationend', function handler() {
+//             section.style.display = "none";
+//             section.classList.remove("sortantGauche");
+//             section.removeEventListener('animationend', handler);
+//
+//             nouvellePage.classList.remove("entrantDroite");
+//             animationEncours = false;
+//         });
+//
+//     }
+//     else{
+//         // 1. Afficher d'abord l'élément
+//         nouvellePage.style.display = "block";
+//
+//         // 3. Ajouter les classes d'animation
+//         section.classList.add("sortantDroite");
+//         nouvellePage.classList.add("entrantGauche");
+//
+//         section.addEventListener('animationend', function handler() {
+//             section.style.display = "none";
+//             section.classList.remove("sortantDroite");
+//             section.removeEventListener('animationend', handler);
+//
+//             nouvellePage.classList.remove("entrantGauche");
+//             animationEncours = false;
+//         });
+//     }
+//
+//     let pages = document.getElementsByClassName("page");
+//     for (let page of pages) {
+//         if (page.classList.contains("active-page")) {
+//             page.classList.remove("active-page");
+//             page.querySelector("img").src = "images/icon-"+page.id+"-blanc.png";
+//             break;
+//         }
+//     }
+//     const nvlSection = document.getElementById(nomSection);
+//     nvlSection.classList.add("active-page");
+//     nvlSection.querySelector("img").src = "images/icon-"+nvlSection.id+"-orange.png";
+// }

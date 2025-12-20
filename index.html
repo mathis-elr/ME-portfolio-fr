@@ -44,7 +44,7 @@
             </div>
         </header>
         <main>
-            <div id="mathis" class="section">
+            <div id="mathis" class="page">
                 <div class="content">
                     <div class="content-gauche">
                         <div class="titre">
@@ -71,45 +71,48 @@
                 </div>
             </div>
 
-            <div id="projets" class="section">
+            <div id="projets" class="page page-active">
                 <div class="content">
                     <div id="projet-gauche" class="projet gauche" onclick="afficheProjetGauche()">
+                        <div class="titre">Titre projet 1</div>
                         <div class="image">
-                            <img src="" alt="image">
+                            <img src="images/black.jpg" alt="image projet 1">
                         </div>
-                        <div class="titre">Application Jeu de Poker</div>
-                        <div class="text">en python</div>
+                        <div class="text">description ..</div>
+                        <div class="legende">Projet xxxxx -20xx</div>
                     </div>
                     <div id="projet-central" class="projet central">
+                        <div class="titre">Algorithmes de plus court chemin</div>
                         <div class="image">
-                            <img src="" alt="image">
+                            <img src="images/AStar_Demo-ezgif.com-loop-count.gif" alt="gif">
                         </div>
-                        <div class="titre">Application web de suivi d'investissement</div>
-                        <div class="text">en blazor c#</div>
+                        <div class="text">description ..</div>
+                        <div class="legende">Projet universitaire - 2025</div>
                     </div>
                     <div id="projet-droite" class="projet droite" onclick="afficheProjetDroite()">
+                        <div class="titre">Titre projet 3</div>
                         <div class="image">
-                            <img src="" alt="image">
+                            <img src="images/black.jpg" alt="image projet 3">
                         </div>
-                        <div class="titre">Portfolio en anglais</div>
-                        <div class="text">html css js</div>
+                        <div class="text">description ..</div>
+                        <div class="legende">Projet xxxxx -20xx</div>
                     </div>
                     <div class="projet">
+                        <div class="titre">Titre projet 4</div>
                         <div class="image">
-                            <img src="" alt="image">
+                            <img src="images/black.jpg" alt="image projet 4">
                         </div>
-                        <div class="titre">titre projet 4</div>
+                        <div class="text">description ..</div>
+                        <div class="legende">Projet xxxxx -20xx</div>
                     </div>
                 </div>
             </div>
 
-            <div id="skills" class="section">
-                <div class="content">
-
-                </div>
+            <div id="skills" class="page">
+                mes skills
             </div>
 
-            <div id="parcours" class="section">
+            <div id="parcours" class="page">
                 <div class="content-ordinateur">
                     <div class="col1">
                         <div class="row1">
@@ -254,11 +257,11 @@
         </footer>
     </body>
     <nav>
-        <div class="flou" id="pages">
-            <a id="mathis-section" class="page" onclick="changeContenuPage('mathis','mathis-section')"> <img src="images/icon-mathis-section-blanc.png" alt="">Mathis</a>
-            <a id="projets-section" class="page active-page" onclick="changeContenuPage('projets','projets-section')"><img src="images/icon-projets-section-orange.png" alt="">Projets</a>
-            <a id="skills-section" class="page" onclick="changeContenuPage('skills','skills-section')"><img src="images/icon-skills-section-blanc.png" alt="">Skills</a>
-            <a id="parcours-section" class="page" onclick="changeContenuPage('parcours','parcours-section')"><img src="images/icon-parcours-section-blanc.png" alt="">Parcours</a>
+        <div class="flou" id="sections">
+            <a id="mathis-section" class="section" onclick="determinerSensNavigation('mathis','mathis-section')"> <img src="images/icon-mathis-section-blanc.png" alt="">Mathis</a>
+            <a id="projets-section" class="section section-active" onclick="determinerSensNavigation('projets','projets-section')"><img src="images/icon-projets-section-orange.png" alt="">Projets</a>
+            <a id="skills-section" class="section" onclick="determinerSensNavigation('skills','skills-section')"><img src="images/icon-skills-section-blanc.png" alt="">Skills</a>
+            <a id="parcours-section" class="section" onclick="determinerSensNavigation('parcours','parcours-section')"><img src="images/icon-parcours-section-blanc.png" alt="">Parcours</a>
         </div>
     </nav>
 </html>

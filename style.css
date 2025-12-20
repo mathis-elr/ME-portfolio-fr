@@ -1,3 +1,4 @@
+/*Animations de changements de page*/
 @keyframes glissementEntrantDroite {
     from {
         transform: translateX(500px);
@@ -42,7 +43,24 @@
     }
 }
 
+.entrantDroite{
+    animation: glissementEntrantDroite 0.3s ease-in-out forwards;
+}
 
+.entrantGauche{
+    animation: glissementEntrantGauche 0.3s ease-in-out forwards;
+}
+
+.sortantDroite{
+    animation: glissementSortantDroite 0.3s ease-in-out forwards;
+}
+
+.sortantGauche{
+    animation: glissementSortantGauche 0.3s ease-in-out forwards;
+}
+
+
+/* --- Commun pages --- */
 body{
     background-color: #121212;
     overflow-y: auto;
@@ -63,7 +81,7 @@ header{
     position: relative;
 }
 
-/*--- Contacts ---*/
+
 #contact {
     position: absolute;
     overflow: hidden;
@@ -123,22 +141,24 @@ header{
     margin-left: auto;
 }
 
-/*--- Corps de page ---*/
 main{
     margin-left: 50px;
     margin-right: 50px;
+    margin-top: 50px;
     color: #F2F2F2;
     flex: 1;
 }
 
-
-/* --- Commun pages --- */
-.section {
+.page{
     display: none;
 }
 
+#projets{
+    display: block;
+}
+
 .flou{
-    background: rgba(173, 173, 173, 0.1);
+    background: rgba(50, 50, 50, 0.2);
     border-radius: 40px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(3px);
@@ -151,22 +171,6 @@ a{
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-}
-
-.entrantDroite{
-    animation: glissementEntrantDroite 0.5s ease-in-out forwards;
-}
-
-.entrantGauche{
-    animation: glissementEntrantGauche 0.5s ease-in-out forwards;
-}
-
-.sortantDroite{
-    animation: glissementSortantDroite 0.5s ease-in-out forwards;
-}
-
-.sortantGauche{
-    animation: glissementSortantGauche 0.5s ease-in-out forwards;
 }
 
 .separateurHorizontal{
@@ -200,10 +204,6 @@ a{
 
 
 /* --- Page Mathis --- */
-#projets{
-    display: block;
-}
-
 #mathis .content{
     display: grid;
     gap: 50px;
@@ -245,72 +245,102 @@ a{
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;
-    gap: 50px;
 }
 
 #projets .projet{
     display: none;
     flex-direction: column;
     gap: 30px;
-    background: rgba(173, 173, 173, 0.1);
+    background: rgba(50, 50, 50, 0.9);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     border: 2px solid #A84825;
     backdrop-filter: blur(3px);
     color: #F2F2F2;
     border-radius: 20px;
-    padding: 30px;
-    text-align: center;
+    transition: all 0.3s ease-in-out;
 }
 
 #projets .gauche{
+    transform: scale(0.9) translateX(50px);
     grid-column: 1;
     grid-row: 1;
     display: flex;
-    transition: transform 0.3s ease-in-out;
 }
 
 #projets .central{
+    padding: 30px;
+    transform: scale(1.1) translateX(0);
     grid-column: 2;
     grid-row: 1;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     z-index: 1;
 }
 
 #projets .droite{
+    transform: scale(0.9) translateX(-50px);
     grid-column: 3;
     grid-row: 1;
     display: flex;
-    transition: transform 0.3s ease-in-out;
 }
 
-#projets .central .image{
+#projets .central .image {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
     border: 1px solid #F2F2F2;
-    border-radius: 5px;
-    min-height: 600px;
+    border-radius: 15px;
+    overflow: hidden;
 }
-
-#projets .gauche .image,
-#projets .droite .image{
-    border: 1px solid #F2F2F2;
-    border-radius: 5px;
-    min-height: 300px;
-}
-
-#projets .gauche:hover,
-#projets .droite:hover{
-    transform: scale(1.05);
-}
-
-#projets .central .titre{
+#projets .titre{
+    grid-column: 1/3;
+    grid-row: 1;
     font-weight: bold;
     font-size: 30px;
 }
 
-#projets .droite .text,
-#projets .gauche .text{
+#projets .text{
+    grid-column: 2;
+    grid-row: 2;
+    text-align: left;
+}
+
+#projets .legende{
+    grid-column: 1;
+    grid-row: 3;
+    text-align: center;
+    font-style: italic;
+}
+
+#projets .droite:hover{
+    transform: translateX(-50px);
+}
+
+#projets .gauche:hover{
+    transform: translateX(50px);
+}
+
+#projets .gauche .image,
+#projets .droite .image {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+#projets .projet .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#projets .titre,
+#projets .text,
+#projets .legende{
     display: none;
 }
 
+#projets .central .legende,
+#projets .central .titre,
 #projets .central .text{
     display: block;
 }
@@ -522,7 +552,7 @@ nav{
     z-index: 999;
 }
 
-#pages{
+#sections{
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -533,11 +563,11 @@ nav{
     padding: 10px 15px 10px 15px;
 }
 
-.page:hover{
+.section:hover{
     background-color: rgb(255,255,255,0.1);
 }
 
-.page{
+.section{
     transition: all 0.3s ease-in-out;
     padding: 5px 30px 5px 30px;
     border-radius: 40px;
@@ -545,17 +575,19 @@ nav{
     font-weight: 700;
 }
 
-#pages a{
+#sections a{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.active-page{
+
+.section-active{
     transform: scale(1.1);
     color: #A84825;
     background-color: rgb(255,255,255,0.1);
 }
+
 
 
 /* Téléphones */
@@ -598,21 +630,21 @@ nav{
         width: 100%;
     }
 
-    #pages{
+    #sections{
         gap:0;
         padding: 5px 7px 5px 7px;
     }
 
-    #pages a{
+    #sections a{
         gap:0;
         line-height: 1;
     }
 
-    .page{
+    .section{
         padding: 5px 15px 5px 15px;
     }
 
-    .page img{
+    .section img{
         width: 30px;
         height: 30px;
     }
@@ -621,7 +653,7 @@ nav{
         font-size: 16px;
     }
 
-    .active-page {
+    .section-active {
         transform: scale(1.03);
     }
 
