@@ -74,28 +74,28 @@ function determinerSensNavigation(nomPage, nomSection)
     animationEncours = true;
 
     if (indexNouvelleSection < indexSectionCourante) {
-        changerContenuPageGauche(idPageChoisi, idSectionClique);
+        changerContenuPage("sortantDroite","entrantGauche",idPageChoisi, idSectionClique);
     }
     else {
-        changerContenuPageDroite(idPageChoisi, idSectionClique);
+        changerContenuPage("sortantGauche","entrantDroite",idPageChoisi, idSectionClique);
     }
 }
 
-function changerContenuPageGauche(idPageChoisi, idSectionClique)
+function changerContenuPage(animationSortante,animationEntrante,idPageChoisi, idSectionClique)
 {
     const sectionCourante = document.querySelector(".section-active");
     const pageCourante = document.querySelector(".page-active");
 
-    pageCourante.classList.add("sortantDroite");
+    pageCourante.classList.add(animationSortante);
 
     pageCourante.addEventListener("animationend", function () {
         pageCourante.style.display = "none";
-        pageCourante.classList.remove("sortantDroite");
+        pageCourante.classList.remove(animationSortante);
         idPageChoisi.style.display = "block";
-        idPageChoisi.classList.add("entrantGauche");
+        idPageChoisi.classList.add(animationEntrante);
 
         idPageChoisi.addEventListener("animationend", function () {
-            idPageChoisi.classList.remove("entrantGauche");
+            idPageChoisi.classList.remove(animationEntrante);
 
             pageCourante.classList.remove("page-active");
             idPageChoisi.classList.add("page-active");
@@ -110,34 +110,6 @@ function changerContenuPageGauche(idPageChoisi, idSectionClique)
     idSectionClique.classList.add("section-active");
 }
 
-function changerContenuPageDroite(idPageChoisi, idSectionClique)
-{
-    const sectionCourante = document.querySelector(".section-active");
-    const pageCourante = document.querySelector(".page-active");
-
-    pageCourante.classList.add("sortantGauche");
-
-    pageCourante.addEventListener("animationend", function () {
-        pageCourante.style.display = "none";
-        pageCourante.classList.remove("sortantGauche");
-        idPageChoisi.style.display = "block";
-        idPageChoisi.classList.add("entrantDroite");
-
-        idPageChoisi.addEventListener("animationend", function () {
-            idPageChoisi.classList.remove("entrantDroite");
-
-            pageCourante.classList.remove("page-active");
-            idPageChoisi.classList.add("page-active");
-
-            animationEncours = false;
-        },{ once: true })
-    },{ once: true })
-
-    sectionCourante.querySelector("img").src = "images/icon-"+sectionCourante.id+"-blanc.png";
-    idSectionClique.querySelector("img").src = "images/icon-"+idSectionClique.id+"-orange.png";
-    sectionCourante.classList.remove("section-active");
-    idSectionClique.classList.add("section-active");
-}
 
 function modulo(dividende, diviseur)
 {
