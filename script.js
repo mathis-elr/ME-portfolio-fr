@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     supportUtilise();
 
     /*--- Disparition navbar quand on scroll ---*/
-    const nav = document.getElementById('pages');
+    const nav = document.getElementById('sections');
     window.addEventListener('scroll', () => {
         const currentScroll = window.scrollY || document.documentElement.scrollTop;
 
