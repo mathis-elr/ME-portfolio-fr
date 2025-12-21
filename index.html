@@ -24,11 +24,11 @@
                 <a id="btn-contact" href="#"><img src="images/icon-contact-blanc.png" alt="Contact" id="icon-contact"></a>
 
                 <div id="contact-info-container">
-                    <a class="infos-contact" href="https://github.com/mathis-elr" target="_blank">
+                    <a class="infos-contact link" href="https://github.com/mathis-elr" target="_blank">
                         <img src="images/icon-github-blanc.png" alt="GitHub : ">
                         mathis-elr
                     </a>
-                    <a class="infos-contact" href="https://www.linkedin.com/in/mathis-eloire/" target="_blank">
+                    <a class="infos-contact link" href="https://www.linkedin.com/in/mathis-eloire/" target="_blank">
                         <img src="images/icon-linkedin-blanc.png" alt="Linkedin : ">
                         mathis-eloire
                     </a>
@@ -74,41 +74,66 @@
             <div id="projets" class="page">
                 <div class="content">
                     <div id="projet-gauche" class="projet gauche" onclick="afficheProjetGauche()">
-                        <div class="titre">Titre projet 1</div>
+                        <div class="titre">Client web de suivi d'investissement</div>
                         <div class="image">
-                            <img src="images/black.jpg" alt="image projet 1">
+                            <img src="images/InvestissementWeb_loop.gif" alt="projet investissement">
                         </div>
-                        <div class="text">description ..</div>
-                        <div class="legende">Projet xxxxx -20xx</div>
+                        <div class="text">
+                            <p>Logiciel réalisé avec C# et dans un premier temps avec une interface client lourd, puis plus récemment basculé dans un projet <I>Blazor</I> pour avoir un client web et donc une interface plus moderne.</p>
+                            <p>Ce projet m'a permis de programmer en <I>C#</I> mais également dans des langages web tels que <I>HTML/CSS/JS</I>.</p>
+                            <p>Le but de ce projet était d'améliorer ma <I>qualité de développement</I>, j'ai donc opté pour un modèle <I>MVVM</I> (adapté à la technologie Blazor) tout en respectant les principes apris en cours mais également dans le livre <I>"Clean Code"</I> de Robert C. Martin ou encore des vidéos.</p>
+                            <p>En ce qui concerne l'utilité du projet, il le sera uniquement dans mon cadre personnel.</p>
+                            <p>Vous pouvez retrouver ce projet sur mon GitHub.</p>
+                        </div>
+                        <div class="legende">Projet perso - 2025</div>
+                        <div class="github">
+                            <a href="https://github.com/mathis-elr/Investissement-Web-Client" target="_blank"><img src="images/icon-github-blanc.png" alt="GitHub"></a>
+                        </div>
                     </div>
                     <div id="projet-central" class="projet central">
                         <div class="titre">Algorithmes de plus court chemin</div>
                         <div class="image">
-                            <img src="images/AStar_Demo-ezgif.com-loop-count.gif" alt="gif">
+                            <img src="images/AStar_loop.gif" alt="algo plus court chemin">
                         </div>
                         <div class="text">
-                            Sed quid est quod in hac causa maxime homines admirentur et reprehendant meum consilium, cum ego idem antea multa decreverim, que magis ad hominis dignitatem quam ad rei publicae necessitatem pertinerent? Supplicationem quindecim dierum decrevi sententia mea. Rei publicae satis erat tot dierum quot C. Mario ; dis immortalibus non erat exigua eadem gratulatio quae ex maximis bellis. Ergo ille cumulus dierum hominis est dignitati tributus.
-                            Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent esse amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae vetustatem ferunt, esse debet suavissima; verumque illud est, quod dicitur, multos modios salis simul edendos esse, ut amicitiae munus expletum sit
-                            Sed quid est quod in hac causa maxime homines admirentur et reprehendant meum consilium, cum ego idem antea multa decreverim, que magis ad hominis dignitatem quam ad rei publicae necessitatem pertinerent? Supplicationem quindecim dierum decrevi sententia mea. Rei publicae satis erat tot dierum quot C. Mario ; dis immortalibus non erat exigua eadem gratulatio quae ex maximis bellis. Ergo ille cumulus dierum hominis est dignitati tributus.
-                            Exsistit autem
+                            <p>Dans le cadre de mon BUT première année, un des projets était de réaliser des <I>algorithmes de plus court chemin</I> pour aller d'un point A à un point B dans le centre-ville de Bayonne, pour cela, nous avons puis réaliser différents algos en python, en commençant par <I>Dijktra</I> puis <I>Bellman-Ford</I> et enfin <I>A*</I>.</p>
+                            <p>Ce projet à surement été le plus <I>intéressant</I> que j'ai fait dans le cadre de mes études, il mélangeait programation, maths, reflexion et surtout travail d'équipe, car c'était un projet à réaliser par deux.</p>
+                            <p>L'animation que vous pouvez voir à gauche est le fruit de notre réalisation et représente le <I>cheminement de l'algo A*</I> pour trouver le plus court chemin.</p>
+                            <p>Vous pouvez retrouver ce projet sur mon GitHub.</p>
                         </div>
-                        <div class="legende">Projet universitaire - 2025</div>
+                        <div class="legende">Projet universitaire - 2024/2025</div>
+                        <div class="github">
+                            <a href="" target="_blank"><img src="images/icon-github-blanc.png" alt="GitHub"></a>
+                        </div>
                     </div>
                     <div id="projet-droite" class="projet droite" onclick="afficheProjetDroite()">
-                        <div class="titre">Titre projet 3</div>
+                        <div class="titre">Jeu de poker en Python</div>
                         <div class="image">
-                            <img src="images/black.jpg" alt="image projet 3">
+                            <img src="images/Poker_loop.gif" alt="jeu de poker">
                         </div>
-                        <div class="text">description ..</div>
-                        <div class="legende">Projet xxxxx -20xx</div>
+                        <div class="text">
+                            <p>Grâce à la bibiliothèque <I>customTkinter</I>, j'ai pu réaliser une interface pour pouvoir jouer à plusieurs au poker (uniquement sur le même pc).</p>
+                            <p>Le but de ce projet était surtout de travailler ma <I>POO</I> et de m'amuser, il n'a pas pour but d'évoluer et d'être mis en ligne ni même d'être utilisé.</p>
+                            <p>Vous pouvez retrouver ce projet sur mon GitHub.</p>
+                        </div>
+                        <div class="legende">Projet perso - 2025</div>
+                        <div class="github">
+                            <a href="https://github.com/mathis-elr/Poker" target="_blank"><img src="images/icon-github-blanc.png" alt="GitHub" ></a>
+                        </div>
                     </div>
                     <div class="projet">
                         <div class="titre">Titre projet 4</div>
                         <div class="image">
-                            <img src="images/black.jpg" alt="image projet 4">
+                            <img src="images/voidProject.jpg" alt="image projet 4">
                         </div>
-                        <div class="text">description ..</div>
+                        <div class="text">
+                            <p>description ..</p>
+                            <p>Vous pouvez retrouver ce projet sur mon GitHub.</p>
+                        </div>
                         <div class="legende">Projet xxxxx -20xx</div>
+                        <div class="github">
+                            <a href="" target="_blank"><img src="images/icon-github-blanc.png" alt="GitHub"></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -159,8 +184,8 @@
                                 <li>Analyser et spécifier des besoins utilisateurs</li>
                                 <li>Développer en C#</li>
                                 <li>Effectuer des tests</li>
-                                <li>Mettre une solution en production</li>
-                                <li>Documenter et maintenir un projet</li>
+                                <li>Mettre des solutions en production</li>
+                                <li>Documenter et maintenir des projets</li>
                             </ul>
                         </div>
                     </div>
