@@ -50,6 +50,33 @@ document.addEventListener('DOMContentLoaded', function() {
             nav.style.transform = 'translateY(0)';
         }
     });
+
+    const listeCategorie = document.getElementsByClassName("categorie");
+    for(let i=0; i<listeCategorie.length;i++)
+    {
+        const idCategorie = document.getElementById(listeCategorie[i].id);
+        idCategorie.addEventListener('mouseover', function(){
+            idCategorie.children[1].classList.remove('disparaitre');
+            idCategorie.children[0].classList.remove('apparaitre');
+
+            idCategorie.children[0].style.display = 'none';
+            idCategorie.children[0].classList.add('disparaitre');
+            idCategorie.children[1].style.display = 'block';
+            idCategorie.children[1].classList.add('apparaitre');
+
+        })
+
+        idCategorie.addEventListener('mouseout', function(){
+            idCategorie.children[1].classList.remove('apparaitre');
+            idCategorie.children[0].classList.remove('disparaitre');
+
+            idCategorie.children[0].style.display = 'block';
+            idCategorie.children[0].classList.add('apparaitre');
+            idCategorie.children[1].style.display = 'none';
+            idCategorie.children[1].classList.add('disparaitre');
+        })
+    }
+
 })
 
 let animationEncours = false;
